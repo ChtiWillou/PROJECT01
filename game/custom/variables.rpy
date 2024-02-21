@@ -15,74 +15,74 @@ label variables:
     
     $ EveObj = GirlCharacter("Eve", 50, 5, 1, 8, 0, "EveRoom",
         {
-        "0700":"LisaRoom","0730":"LisaRoom","0800":"Bathroom","0830":"Bathroom",
-        "0900":"LisaRoom","0930":"LisaRoom","1000":"School","1030":"School",
+        "0700":"EveRoom","0730":"EveRoom","0800":"Bathroom","0830":"Kitchen",
+        "0900":"Pool","0930":"EveRoom","1000":"School","1030":"School",
         "1100":"School","1130":"School","1200":"School","1230":"School",
-        "1300":"School","1330":"School","1400":"School","1430":"School",
-        "1500":"School","1530":"LisaRoom","1600":"LisaRoom","1630":"LisaRoom",
-        "1700":"LisaRoom","1730":"LisaRoom","1800":"LisaRoom","1830":"LisaRoom",
-        "1900":"Diningroom","1930":"Diningroom","2100":"LisaRoom","2130":"LisaRoom",
-        "2100":"LisaRoom","2130":"LisaRoom","2200":"LisaRoom","2230":"LisaRoom",
-        "2300":"LisaRoom","2330":"LisaRoom","0000":"LisaRoom"
+        "1300":"School","1330":"School","1400":"TVRoom","1430":"TVRoom",
+        "1500":"TVRoom","1530":"EveRoom","1600":"EveRoom","1630":"EveRoom",
+        "1700":"EveRoom","1730":"EveRoom","1800":"EveRoom","1830":"EveRoom",
+        "1900":"Diningroom","1930":"Diningroom","2100":"EveRoom","2130":"EveRoom",
+        "2100":"EveRoom","2130":"EveRoom","2200":"EveRoom","2230":"EveRoom",
+        "2300":"EveRoom","2330":"EveRoom","0000":"EveRoom"
         },
         {
-        "0700":"LisaRoom","0730":"LisaRoom","0800":"Bathroom","0830":"Bathroom",
-        "0900":"LisaRoom","0930":"LisaRoom","1000":"LisaRoom","1030":"LisaRoom",
-        "1100":"Boutique","1130":"Boutique","1200":"Lingerie","1230":"Lingerie",
-        "1300":"Jewelry","1330":"Jewelry","1400":"Café","1430":"Café",
-        "1500":"LisaRoom","1530":"LisaRoom","1600":"LisaRoom","1630":"LisaRoom",
-        "1700":"LisaRoom","1730":"LisaRoom","1800":"LisaRoom","1830":"LisaRoom",
-        "1900":"Diningroom","1930":"Diningroom","2000":"LisaRoom","2030":"LisaRoom",
-        "2100":"TVRoom","2130":"TVRoom","2200":"LisaRoom","2230":"LisaRoom",
-        "2300":"LisaRoom","2330":"LisaRoom","0000":"LisaRoom"
+        "0700":"EveRoom","0730":"EveRoom","0800":"Bathroom","0830":"Kitchen",
+        "0900":"Pool","0930":"EveRoom","1000":"School","1030":"School",
+        "1100":"School","1130":"School","1200":"School","1230":"School",
+        "1300":"School","1330":"School","1400":"TVRoom","1430":"TVRoom",
+        "1500":"TVRoom","1530":"EveRoom","1600":"EveRoom","1630":"EveRoom",
+        "1700":"EveRoom","1730":"EveRoom","1800":"EveRoom","1830":"EveRoom",
+        "1900":"Diningroom","1930":"Diningroom","2100":"EveRoom","2130":"EveRoom",
+        "2100":"EveRoom","2130":"EveRoom","2200":"EveRoom","2230":"EveRoom",
+        "2300":"EveRoom","2330":"EveRoom","0000":"EveRoom"
         })
 
     $ LynnObj = GirlCharacter("Lynn", 50, 5, 2, 9, 0, "LynnRoom",
         {
-        "0700":"LisaRoom","0730":"LisaRoom","0800":"Bathroom","0830":"Bathroom",
-        "0900":"LisaRoom","0930":"LisaRoom","1000":"School","1030":"School",
-        "1100":"School","1130":"School","1200":"School","1230":"School",
+        "0700":"LynnRoom","0730":"LynnRoom","0800":"Bathroom","0830":"Kitchen",
+        "0900":"Pool","0930":"LynnRoom","1000":"School","1030":"School",
+        "1100":"Pool","1130":"Pool","1200":"School","1230":"School",
         "1300":"School","1330":"School","1400":"School","1430":"School",
-        "1500":"School","1530":"LisaRoom","1600":"LisaRoom","1630":"LisaRoom",
-        "1700":"LisaRoom","1730":"LisaRoom","1800":"LisaRoom","1830":"LisaRoom",
-        "1900":"Diningroom","1930":"Diningroom","2100":"LisaRoom","2130":"LisaRoom",
-        "2100":"LisaRoom","2130":"LisaRoom","2200":"LisaRoom","2230":"LisaRoom",
-        "2300":"LisaRoom","2330":"LisaRoom","0000":"LisaRoom"
+        "1500":"School","1530":"LynnRoom","1600":"LynnRoom","1630":"LynnRoom",
+        "1700":"LynnRoom","1730":"LynnRoom","1800":"LynnRoom","1830":"LynnRoom",
+        "1900":"Diningroom","1930":"Diningroom","2100":"LynnRoom","2130":"LynnRoom",
+        "2100":"LynnRoom","2130":"LynnRoom","2200":"LynnRoom","2230":"LynnRoom",
+        "2300":"LynnRoom","2330":"LynnRoom","0000":"LynnRoom"
         },
         {
-        "0700":"LisaRoom","0730":"LisaRoom","0800":"Bathroom","0830":"Bathroom",
-        "0900":"LisaRoom","0930":"LisaRoom","1000":"LisaRoom","1030":"LisaRoom",
-        "1100":"Boutique","1130":"Boutique","1200":"Lingerie","1230":"Lingerie",
-        "1300":"Jewelry","1330":"Jewelry","1400":"Café","1430":"Café",
-        "1500":"LisaRoom","1530":"LisaRoom","1600":"LisaRoom","1630":"LisaRoom",
-        "1700":"LisaRoom","1730":"LisaRoom","1800":"LisaRoom","1830":"LisaRoom",
-        "1900":"Diningroom","1930":"Diningroom","2000":"LisaRoom","2030":"LisaRoom",
-        "2100":"TVRoom","2130":"TVRoom","2200":"LisaRoom","2230":"LisaRoom",
-        "2300":"LisaRoom","2330":"LisaRoom","0000":"LisaRoom"
+        "0700":"LynnRoom","0730":"LynnRoom","0800":"Bathroom","0830":"Kitchen",
+        "0900":"Pool","0930":"LynnRoom","1000":"School","1030":"School",
+        "1100":"Pool","1130":"Pool","1200":"School","1230":"School",
+        "1300":"School","1330":"School","1400":"School","1430":"School",
+        "1500":"School","1530":"LynnRoom","1600":"LynnRoom","1630":"LynnRoom",
+        "1700":"LynnRoom","1730":"LynnRoom","1800":"LynnRoom","1830":"LynnRoom",
+        "1900":"Diningroom","1930":"Diningroom","2100":"LynnRoom","2130":"LynnRoom",
+        "2100":"LynnRoom","2130":"LynnRoom","2200":"LynnRoom","2230":"LynnRoom",
+        "2300":"LynnRoom","2330":"LynnRoom","0000":"LynnRoom"
         })
     
     $ LinaObj = GirlCharacter("Lina", 50, 5, 2, 10, 0, "LinaRoom",
         {
-        "0700":"LisaRoom","0730":"LisaRoom","0800":"Bathroom","0830":"Bathroom",
-        "0900":"LisaRoom","0930":"LisaRoom","1000":"School","1030":"School",
-        "1100":"School","1130":"School","1200":"School","1230":"School",
-        "1300":"School","1330":"School","1400":"School","1430":"School",
-        "1500":"School","1530":"LisaRoom","1600":"LisaRoom","1630":"LisaRoom",
-        "1700":"LisaRoom","1730":"LisaRoom","1800":"LisaRoom","1830":"LisaRoom",
-        "1900":"Diningroom","1930":"Diningroom","2100":"LisaRoom","2130":"LisaRoom",
-        "2100":"LisaRoom","2130":"LisaRoom","2200":"LisaRoom","2230":"LisaRoom",
-        "2300":"LisaRoom","2330":"LisaRoom","0000":"LisaRoom"
+        "0700":"LinaRoom","0730":"LinaRoom","0800":"Bathroom","0830":"Bathroom",
+        "0900":"LinaRoom","0930":"LinaRoom","1000":"School","1030":"School",
+        "1100":"TVRomm","1130":"TVRoom","1200":"School","1230":"School",
+        "1300":"School","1330":"School","1400":"Pool","1430":"Pool",
+        "1500":"School","1530":"LinaRoom","1600":"LinaRoom","1630":"LinaRoom",
+        "1700":"LinaRoom","1730":"LinaRoom","1800":"LinaRoom","1830":"LinaRoom",
+        "1900":"Diningroom","1930":"Diningroom","2100":"LinaRoom","2130":"LinaRoom",
+        "2100":"LinaRoom","2130":"LinaRoom","2200":"LinaRoom","2230":"LinaRoom",
+        "2300":"LinaRoom","2330":"LinaRoom","0000":"LinaRoom"
         },
         {
-        "0700":"LisaRoom","0730":"LisaRoom","0800":"Bathroom","0830":"Bathroom",
-        "0900":"LisaRoom","0930":"LisaRoom","1000":"LisaRoom","1030":"LisaRoom",
-        "1100":"Boutique","1130":"Boutique","1200":"Lingerie","1230":"Lingerie",
-        "1300":"Jewelry","1330":"Jewelry","1400":"Café","1430":"Café",
-        "1500":"LisaRoom","1530":"LisaRoom","1600":"LisaRoom","1630":"LisaRoom",
-        "1700":"LisaRoom","1730":"LisaRoom","1800":"LisaRoom","1830":"LisaRoom",
-        "1900":"Diningroom","1930":"Diningroom","2000":"LisaRoom","2030":"LisaRoom",
-        "2100":"TVRoom","2130":"TVRoom","2200":"LisaRoom","2230":"LisaRoom",
-        "2300":"LisaRoom","2330":"LisaRoom","0000":"LisaRoom"
+        "0700":"LinaRoom","0730":"LinaRoom","0800":"Bathroom","0830":"Bathroom",
+        "0900":"LinaRoom","0930":"LinaRoom","1000":"School","1030":"School",
+        "1100":"TVRomm","1130":"TVRoom","1200":"School","1230":"School",
+        "1300":"School","1330":"School","1400":"Pool","1430":"Pool",
+        "1500":"School","1530":"LinaRoom","1600":"LinaRoom","1630":"LinaRoom",
+        "1700":"LinaRoom","1730":"LinaRoom","1800":"LinaRoom","1830":"LinaRoom",
+        "1900":"Diningroom","1930":"Diningroom","2100":"LinaRoom","2130":"LinaRoom",
+        "2100":"LinaRoom","2130":"LinaRoom","2200":"LinaRoom","2230":"LinaRoom",
+        "2300":"LinaRoom","2330":"LinaRoom","0000":"LinaRoom"
         })
 
     default curLoc = ""
@@ -95,7 +95,9 @@ label variables:
     default LinaRoomFirstVisit = True
     default LynnRoomFirstVisit = True
     default EveRoomFirstVisit = True
-    default JacuzziFirstVisit = True
+    default PoolFirstVisit = True
+    default FirstSundayPassed = False
+    default FirstMondayPassed = False
     default NbHackReadHoursForSkill = 5
     default NbYogaReadHoursForSkill = 5
     default NbPhotoReadHoursForSkill = 5

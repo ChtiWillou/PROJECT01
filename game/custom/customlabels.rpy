@@ -5,9 +5,15 @@ label GAME:
     # Here we enter an 'infinite loop' to play the game
     while PlayGame:
         # each event should come back to this label:
-        label GAMECONTINUE:            
+        label GAMECONTINUE: 
+            hide screen QuickStats  
+            show screen Header()
+            show screen LocationsSubMenu()         
             # Reset the BlockToCall in case of event triggering
-            $ BlockToCall = "" 
+            $ BlockToCall = ""
+            $ LinaObj.GetLocation(Date)
+            $ LynnObj.GetLocation(Date)
+            $ EveObj.GetLocation(Date)
             $ lysh = LynnObj.DefShyLvl()                  
 
             # Code to parse EVENTS array and eventually call a block if an event is triggered
@@ -108,77 +114,19 @@ label GAMEOVER:
 label end:
     return
 
-
 init -501 python:
     def _pause (pdelay = 1.0, hard = False):
         renpy.pause ((pdelay * delay_factor), hard = (hard and hard_indicator))
 
-label Diningroom:
-    $ curLoc = "Dining room"
-    $ curLocForEvent = "Diningroom"
-
-    if DiningRoomFirstVisit:
-        hide screen Header        
-        scene diningroom_bg with dissolve
-        m "This is our dining room"
-        $ DiningRoomFirstVisit = False
-    else:
-        scene diningroom_bg with dissolve     
-    
-    $ LinaObj.GetLocation(Date)
-    $ LynnObj.GetLocation(Date)
-    $ EveObj.GetLocation(Date)
-    show screen Header
-
-    return
-
-label Bathroom:
-    $ curLoc = "Bathroom"
-    $ curLocForEvent = "Bathroom"
-
-    if BathroomFirstVisit:
-        hide screen Header        
-        scene bathroome11 with dissolve
-        m "This is our bathroom"
-        $ BathroomFirstVisit = False
-    else:
-        scene bathroome11 with dissolve     
-    
-    $ LinaObj.GetLocation(Date)
-    $ LynnObj.GetLocation(Date)
-    $ EveObj.GetLocation(Date)
-    show screen Header
-    
-    return
-
-label Kitchen:
-    $ curLoc = "Kitchen"
-    $ curLocForEvent = "Kitchen"
-
-    if KitchenFirstVisit:
-        hide screen Header        
-        scene kitchene11 with dissolve
-        m "This is our kitchen"
-        $ KitchenFirstVisit = False
-    else:
-        scene kitchene11 with dissolve    
-    
-    $ LinaObj.GetLocation(Date)
-    $ LynnObj.GetLocation(Date)
-    $ EveObj.GetLocation(Date)
-    show screen Header    
-
-    return
-
 label withdraw():
     if WebGenMoney > 0:
-        $ Withdraw = renpy.input("How much do you want to withdraw? (between 1 and [WebGenMoney])")
-        if Withdraw.isdigit():
-            $ Withdraw = int(Withdraw)
-        else:
-            $ Withdraw = 0
-            "Wrong request..."
-            return
+        label ReqWithdraw:
+            $ Withdraw = renpy.input("How much do you want to withdraw? (between 1 and [WebGenMoney])")
+            if Withdraw.isdigit():
+                $ Withdraw = int(Withdraw)
+            else:
+                "Wrong request..."
+                jump ReqWithdraw
         
         if Withdraw > WebGenMoney:
             "You can only withdraw [WebGenMoney]$. They will be added to your account"
@@ -187,25 +135,68 @@ label withdraw():
         else:
             $ BobObj.Money += Withdraw
             $ WebGenMoney -= Withdraw
-            "[Withdraw]$ have been added to your account"
+            "$[Withdraw] have been added to your account"
 
         $ BobObj.Money = round(BobObj.Money)
-        $ Withdraw = 0
     else:
         "Sorry, you have nothing to withdraw..."   
+    return
+
+label Diningroom:
+    #hide screen QuickStats
+    $ curLoc = "Dining room"
+    $ curLocForEvent = "Diningroom"
+
+    if DiningRoomFirstVisit:
+        $ DiningRoomFirstVisit = False    
+        scene diningroom_bg with dissolve
+        m "This is our dining room"        
+    else:
+        scene diningroom_bg with dissolve     
+    
+    $ LinaObj.GetLocation(Date)
+    $ LynnObj.GetLocation(Date)
+    $ EveObj.GetLocation(Date)
+    #show screen Header()
+    #show screen LocationsSubMenu()
+
+    return
+
+label Bathroom:
+    $ curLoc = "Bathroom"
+    $ curLocForEvent = "Bathroom"
+
+    if BathroomFirstVisit:
+        $ BathroomFirstVisit = False       
+        scene bathroome11 with dissolve
+        m "This is our bathroom"
+    else:
+        scene bathroome11 with dissolve     
+
+    return
+
+label Kitchen:
+    $ curLoc = "Kitchen"
+    $ curLocForEvent = "Kitchen"
+
+    if KitchenFirstVisit:  
+        $ KitchenFirstVisit = False     
+        scene kitchene11 with dissolve
+        m "This is our kitchen"
+    else:
+        scene kitchene11 with dissolve    
+
     return
 
 label BobRoom:
     $ curLoc = "Bob's Room"
     $ curLocForEvent = "BobRoom"
+    scene bobroom_bg with dissolve
 
-    if BobRoomFirstVisit:
-        hide screen Header
-        hide screen BobRoomIcons        
-        scene bobroom_bg with dissolve
-        m "This is my bedroom"
-
+    if BobRoomFirstVisit: 
         $ BobRoomFirstVisit = False
+        m "This is my bedroom"
+        
     else:
         if FirstSundayPassed:
             if Date.Hours == 6 and Date.Minutes == 50:
@@ -221,12 +212,10 @@ label BobRoom:
 
                 $ Date.Hours = 7
                 $ Date.Minutes = 0
-                show screen Header
-                show screen BobRoomIcons
-                jump GAMECONTINUE
-    
-    show screen Header
-    show screen BobRoomIcons
+                show screen BobRoomIcons()
+                jump GAMECONTINUE    
+
+    show screen BobRoomIcons()
 
     return
 
@@ -234,15 +223,14 @@ label LinaRoom:
     $ curLoc = "[nameOfLina]'s Bedroom"
     $ curLocForEvent = "LinaRoom"
 
-    if LinaRoomFirstVisit:
-        hide screen Header        
+    if LinaRoomFirstVisit:  
+        $ LinaRoomFirstVisit = False   
         scene linaroom_bg with dissolve
         m "This is Lina's bedroom"
-        $ LinaRoomFirstVisit = False
     else:
-        scene girlroom_bg with dissolve
+        scene linaroom_bg with dissolve
        
-    show screen Header
+
     
     return
 
@@ -250,63 +238,53 @@ label LynnRoom:
     $ curLoc = "Lynn's Room"
     $ curLocForEvent = "LynnRoom"
 
-    if LynnRoomFirstVisit:
-        hide screen Header        
+    if LynnRoomFirstVisit:    
+        $ LynnRoomFirstVisit = False 
         scene lynnroom_bg with dissolve
         m "This is Lynn's bedroom"
-        $ LynnRoomFirstVisit = False
     else:
-        scene expression "1614sh[lysh]" with dissolve
-       
-    show screen Header
-    
+        #scene expression "1614sh[lysh]" with dissolve
+        scene lynnroom_bg with dissolve
+
     return
 
 label EveRoom:
     $ curLoc = "Eve's Room"
     $ curLocForEvent = "EveRoom"
 
-    if EveRoomFirstVisit:
-        hide screen Header        
+    if EveRoomFirstVisit:  
+        $ EveRoomFirstVisit = False 
         scene everoom_bg with dissolve
         m "This is Eve's bedroom"
-        $ EveRoomFirstVisit = False
     else:
-        scene boyroom_bg with dissolve
-       
-    show screen Header
-    
+        scene everoom_bg with dissolve
+           
     return
 
 label LivingRoom:
     $ curLoc = "Living Room"
     $ curLocForEvent = "LivingRoom"
 
-    if TVRoomFirstVisit:
-        hide screen Header        
+    if TVRoomFirstVisit:  
+        $ TVRoomFirstVisit = False     
         scene tvroom_bg with dissolve
         m "This is the TV room"
-        $ TVRoomFirstVisit = False
     else:
-        scene livingroom_bg with dissolve     
-    
-    show screen Header 
+        scene tvroom_bg with dissolve     
     
     return
 
-label Jacuzzi:
-    $ curLoc = "Jacuzzi"
-    $ curLocForEvent = "Jacuzzi"
+label Pool:
+    $ curLoc = "Pool"
+    $ curLocForEvent = "Pool"
 
-    if JacuzziFirstVisit:
-        hide screen Header        
-        scene jacuzzi_bg with dissolve
-        m "This is the Jacuzzi"
-        $ JacuzziFirstVisit = False
+    if PoolFirstVisit:  
+        
+        $ PoolFirstVisit = False     
+        scene pool_bg with dissolve
+        m "This is our pool"
     else:
-        scene jacuzzi_bg with dissolve     
-    
-    show screen Header 
+        scene pool_bg with dissolve     
     
     return
 

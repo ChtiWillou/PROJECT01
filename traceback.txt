@@ -1,0 +1,46 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/custom/customlabels.rpy", line 28, in script call
+    call expression curLocForEvent
+  File "game/custom/customlabels.rpy", line 28, in script call
+    call expression curLocForEvent
+  File "game/custom/customlabels.rpy", line 28, in script call
+    call expression curLocForEvent
+  [Previous line repeated 4 more times]
+  File "game/custom/customlabels.rpy", line 32, in script call
+    $ renpy.pause(hard=True)
+  File "game/custom/customlabels.rpy", line 125, in script
+    if Withdraw.isdigit():
+  File "game/custom/customlabels.rpy", line 125, in <module>
+    if Withdraw.isdigit():
+AttributeError: 'int' object has no attribute 'isdigit'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/custom/customlabels.rpy", line 28, in script call
+    call expression curLocForEvent
+  File "game/custom/customlabels.rpy", line 28, in script call
+    call expression curLocForEvent
+  File "game/custom/customlabels.rpy", line 28, in script call
+    call expression curLocForEvent
+  [Previous line repeated 4 more times]
+  File "game/custom/customlabels.rpy", line 32, in script call
+    $ renpy.pause(hard=True)
+  File "game/custom/customlabels.rpy", line 125, in script
+    if Withdraw.isdigit():
+  File "D:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2133, in execute
+    if renpy.python.py_eval(condition):
+  File "D:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "D:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/custom/customlabels.rpy", line 125, in <module>
+    if Withdraw.isdigit():
+AttributeError: 'int' object has no attribute 'isdigit'
+
+Windows-10-10.0.22631 AMD64
+Ren'Py 8.1.1.23060707
+ProjectCW 1.0
+Wed Feb 21 16:32:17 2024

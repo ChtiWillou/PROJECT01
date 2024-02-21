@@ -38,9 +38,17 @@ default wcolor = "#fff"
 default bcolor = "#000"
 
 default WebGenMoney = 500
-default Withdraw = 0
+default Withdraw = ""
 default prologue = 1
 
+transform reduce_small_icons:
+    zoom 0.5
+
+transform reduce_navgirl_icons:
+    zoom 0.4
+
+transform reduce_verysmall_icons:
+    zoom 0.1
 # The game starts here.
 
 label start:

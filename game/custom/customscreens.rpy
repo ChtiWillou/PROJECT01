@@ -14,50 +14,51 @@ screen BobRoomIcons():
                 imagebutton:
                     idle "comp_icon_idle"
                     hover "comp_icon_hover"
-                    hovered Show("disp_info",None,info="Go on computer"), Hide("LocationsSubMenu")
+                    hovered Show("disp_info",None,info="Go on computer")#, Hide("LocationsSubMenu")
                     unhovered Hide("disp_info")
                     action Hide("Picture_exchange"), Hide("disp_info"), Hide("ActionsSubMenu")#, Call("selling_pictures")
                 if BobObj.Intel < 10:
                     imagebutton:
                         idle "study_icon_idle"
                         hover "study_icon_hover"
-                        hovered Show("disp_info",None,info="Study 1 hour"), Hide("LocationsSubMenu")
+                        hovered Show("disp_info",None,info="Study 1 hour")#, Hide("LocationsSubMenu")
                         unhovered Hide("disp_info")
                         action Hide("disp_info"), Hide("ActionsSubMenu"), Call("Study")
                 if BobObj.Strength < 10:        
                     imagebutton:
                         idle "sport_icon_idle"
                         hover "sport_icon_hover"
-                        hovered Show("disp_info",None,info="Sport 1 hour"), Hide("LocationsSubMenu")
+                        hovered Show("disp_info",None,info="Sport 1 hour")#, Hide("LocationsSubMenu")
                         unhovered Hide("disp_info")
                         action Hide("disp_info"), Hide("ActionsSubMenu"), Call("Sport")
                 if BobObj.HackingSkills < 10:
                     imagebutton:
                         idle "hack_icon_idle"
                         hover "hack_icon_hover"
-                        hovered Show("disp_info",None,info="Read about Hacking"), Hide("LocationsSubMenu")
+                        hovered Show("disp_info",None,info="Read about Hacking")#, Hide("LocationsSubMenu")
                         unhovered Hide("disp_info")
                         action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadHack")
                 if BobObj.YogaSkills < 10:
                     imagebutton:
                         idle "yoga_icon_idle"
                         hover "yoga_icon_hover"
-                        hovered Show("disp_info",None,info="Read about Yoga"), Hide("LocationsSubMenu")
+                        hovered Show("disp_info",None,info="Read about Yoga")#, Hide("LocationsSubMenu")
                         unhovered Hide("disp_info")
                         action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadYoga")
                 if BobObj.PhotoSkills < 10:
                     imagebutton:
                         idle "photo_icon_idle"
                         hover "photo_icon_hover"
-                        hovered Show("disp_info",None,info="Read about Photography"), Hide("LocationsSubMenu")
+                        hovered Show("disp_info",None,info="Read about Photography")#, Hide("LocationsSubMenu")
                         unhovered Hide("disp_info")
                         action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadPhoto")                                         
                 imagebutton:
                         idle "money_icon_idle"
                         hover "money_icon_hover"
-                        hovered Show("disp_info",None,info="Withdraw"), Hide("LocationsSubMenu")
+                        hovered Show("disp_info",None,info="Withdraw")#, Hide("LocationsSubMenu")
                         unhovered Hide("disp_info")
                         action Hide("disp_info"), Hide("ActionsSubMenu"), Call("withdraw")
+
 screen Header():
     frame:
         background "#00000060"
@@ -73,7 +74,7 @@ screen Header():
                 imagebutton:
                     idle "user_icon_idle"
                     hover "user_icon_hover"
-                    hovered Show("disp_info",None,info="Show Stats"), Hide("TimeSubMenu"), Hide("LocationsSubMenu")#, Show("QuickStats")
+                    hovered Show("disp_info",None,info="Show Stats"), Hide("TimeSubMenu")#, Hide("LocationsSubMenu")#, Show("QuickStats")
                     unhovered Hide("disp_info")#, Hide("QuickStats")
                     action Hide("disp_info"), ToggleScreen("QuickStats")
                 
@@ -81,10 +82,12 @@ screen Header():
                     imagebutton:
                         idle "time_icon_idle"
                         hover "time_icon_hover"
-                        hovered Show("disp_info",None,info="Add time"), Hide("LocationsSubMenu")
+                        #hovered Show("disp_info",None,info="Add time")#, Hide("LocationsSubMenu")
+                        #unhovered Hide("disp_info")
+                        #action Hide("disp_info"), ToggleScreen("TimeSubMenu")
+                        hovered Show("disp_info",None,info="Add 1 hour")
                         unhovered Hide("disp_info")
-                        action Hide("disp_info"), ToggleScreen("TimeSubMenu")
-                    
+                        action Hide("disp_info"), Call("add1hour")#Hide("TimeSubMenu"), 
                 else:
                     imagebutton:
                         idle "empty"
@@ -92,7 +95,7 @@ screen Header():
                     imagebutton:  
                         idle "nextday_icon_idle"
                         hover "nextday_icon_hover"
-                        hovered Show("disp_info",None,info="Go to next day"), Hide("TimeSubMenu"), Hide("LocationsSubMenu")
+                        hovered Show("disp_info",None,info="Go to next day"), Hide("TimeSubMenu")#, Hide("LocationsSubMenu")
                         unhovered Hide("disp_info")
                         action Hide("disp_info"), Call("changeDay")
                 else:
@@ -110,17 +113,11 @@ screen Header():
             margin 0,0
             textbutton "{size=25}[Date.Output]{/size}" text_color "#ffffff" yalign 0.5
 
-        frame:
-            background None
-            xalign 1.0 yalign 0.0
-            
-            hbox:            
-                imagebutton:
-                    idle "home_icon_idle"
-                    hover "home_icon_hover"
-                    hovered Show("disp_info",None,info="Move to...")
-                    unhovered Hide("disp_info")
-                    action Hide("disp_info"), ToggleScreen("LocationsSubMenu")                
+        #frame:
+        #    background None
+        #    xalign 1.0 yalign 0.0
+        #   
+        #    hbox:            
                 
 screen disp_info(info):
     frame:        
@@ -133,69 +130,132 @@ screen disp_info(info):
 
 screen LocationsSubMenu():
     frame:
-        background "#00000060"
-        xalign 1.0 ypos 80
+        background None # "#00000060"
+        xalign 1.0 ypos 60
         xsize 85 ysize 1000
         padding 5,0
         margin 0,0
         vbox:
             xalign 1.0
             imagebutton:
-                xalign 1.0
                 idle "bedroom_icon_idle"
                 hover "bedroom_icon_hover"
                 hovered Show("disp_info",None,info="Move to Bob's Room")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("disp_info"), Show("BobRoomIcons"), SetVariable("curLocForEvent","BobRoom"), Jump("GAMECONTINUE")
+                action Hide("disp_info"), Show("BobRoomIcons"), SetVariable("curLocForEvent","BobRoom"), Jump("GAMECONTINUE")               
+            
+            #imagebutton:
+            #    xalign 1.0
+            #    idle "bedroom_icon_idle"
+            #    hover "bedroom_icon_hover"
+            #    hovered Show("disp_info",None,info="Move to Bob's Room")
+            #    unhovered Hide("disp_info")
+            #    action Hide("LocationsSubMenu"), Hide("disp_info"), Show("BobRoomIcons"), SetVariable("curLocForEvent","BobRoom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "bedroom2_icon_idle"
                 hover "bedroom2_icon_hover"
                 hovered Show("disp_info",None,info="Move to Lina's Room")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LinaRoom"), Jump("GAMECONTINUE")
+                action Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LinaRoom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "bedroom2_icon_idle"
                 hover "bedroom2_icon_hover"
                 hovered Show("disp_info",None,info="Move to Lynn's Room")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LynnRoom"), Jump("GAMECONTINUE")
+                action Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LynnRoom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "bedroom2_icon_idle"
                 hover "bedroom2_icon_hover"
                 hovered Show("disp_info",None,info="Move to Eve's Room")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","EveRoom"), Jump("GAMECONTINUE")
+                action Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","EveRoom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "kitchen_icon_idle"
                 hover "kitchen_icon_hover"
                 hovered Show("disp_info",None,info="Move to Kitchen")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Kitchen"), Jump("GAMECONTINUE")
+                action Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Kitchen"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "tv_icon_idle"
                 hover "tv_icon_hover"
                 hovered Show("disp_info",None,info="Move to Living Room")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LivingRoom"), Jump("GAMECONTINUE")
+                action Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LivingRoom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "bath_icon_idle"
                 hover "bath_icon_hover"
                 hovered Show("disp_info",None,info="Move to Bathroom")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Bathroom"), Jump("GAMECONTINUE")
+                action Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Bathroom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "jacuzzi_icon_idle"
                 hover "jacuzzi_icon_hover"
-                hovered Show("disp_info",None,info="Move to Jacuzzi")
+                hovered Show("disp_info",None,info="Move to Pool")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Jacuzzi"), Jump("GAMECONTINUE")
+                action Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Pool"), Jump("GAMECONTINUE")
+    
+    frame:
+        background None
+        if LynnObj.Location <> "":          
+            if LynnObj.Location == "BobRoom":
+                imagebutton idle "small_lynn" xpos 1875 ypos 45 at reduce_navgirl_icons
+            if LynnObj.Location == "LinaRoom":
+                imagebutton idle "small_lynn" xpos 1875 ypos 115 at reduce_navgirl_icons
+            if LynnObj.Location == "LynnRoom":
+                imagebutton idle "small_lynn" xpos 1875 ypos 185 at reduce_navgirl_icons
+            if LynnObj.Location == "EveRoom":
+                imagebutton idle "small_lynn" xpos 1875 ypos 255 at reduce_navgirl_icons
+            if LynnObj.Location == "Kitchen":
+                imagebutton idle "small_lynn" xpos 1875 ypos 325 at reduce_navgirl_icons
+            if LynnObj.Location == "TVRoom":
+                imagebutton idle "small_lynn" xpos 1875 ypos 395 at reduce_navgirl_icons
+            if LynnObj.Location == "Bathroom":
+                imagebutton idle "small_lynn" xpos 1875 ypos 465 at reduce_navgirl_icons
+            if LynnObj.Location == "Pool":
+                imagebutton idle "small_lynn" xpos 1875 ypos 535 at reduce_navgirl_icons
+
+        if LinaObj.Location <> "":          
+            if LinaObj.Location == "BobRoom":
+                imagebutton idle "small_lina" xpos 1835 ypos 45 at reduce_navgirl_icons
+            if LinaObj.Location == "LinaRoom":
+                imagebutton idle "small_lina" xpos 1835 ypos 115 at reduce_navgirl_icons
+            if LinaObj.Location == "LynnRoom":
+                imagebutton idle "small_lina" xpos 1835 ypos 185 at reduce_navgirl_icons
+            if LinaObj.Location == "EveRoom":
+                imagebutton idle "small_lina" xpos 1835 ypos 255 at reduce_navgirl_icons
+            if LinaObj.Location == "Kitchen":
+                imagebutton idle "small_lina" xpos 1835 ypos 325 at reduce_navgirl_icons
+            if LinaObj.Location == "TVRoom":
+                imagebutton idle "small_lina" xpos 1835 ypos 395 at reduce_navgirl_icons
+            if LinaObj.Location == "Bathroom":
+                imagebutton idle "small_lina" xpos 1835 ypos 465 at reduce_navgirl_icons
+            if LinaObj.Location == "Pool":
+                imagebutton idle "small_lina" xpos 1835 ypos 535 at reduce_navgirl_icons
+
+        if EveObj.Location <> "":          
+            if EveObj.Location == "BobRoom":
+                imagebutton idle "small_eve" xpos 1855 ypos 80 at reduce_navgirl_icons
+            if EveObj.Location == "LinaRoom":
+                imagebutton idle "small_eve" xpos 1855 ypos 150 at reduce_navgirl_icons
+            if EveObj.Location == "LynnRoom":
+                imagebutton idle "small_eve" xpos 1855 ypos 220 at reduce_navgirl_icons
+            if EveObj.Location == "EveRoom":
+                imagebutton idle "small_eve" xpos 1855 ypos 290 at reduce_navgirl_icons
+            if EveObj.Location == "Kitchen":
+                imagebutton idle "small_eve" xpos 1855 ypos 360 at reduce_navgirl_icons
+            if EveObj.Location == "TVRoom":
+                imagebutton idle "small_eve" xpos 1855 ypos 430 at reduce_navgirl_icons
+            if EveObj.Location == "Bathroom":
+                imagebutton idle "small_eve" xpos 1855 ypos 500 at reduce_navgirl_icons
+            if EveObj.Location == "Pool":
+                imagebutton idle "small_eve" xpos 1855 ypos 570 at reduce_navgirl_icons
 
 screen StatsSubMenu():
     frame:
@@ -235,8 +295,8 @@ screen TimeSubMenu():
                 unhovered Hide("disp_info")
                 action Hide("TimeSubMenu"), Hide("disp_info"), Call("add2hours")
 
-
 screen QuickStats():
+    #modal True
     frame:
         background 'gui/frame_stats.png'
         xalign 0.5 ypos 80
