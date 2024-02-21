@@ -1,46 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/custom/customlabels.rpy", line 28, in script call
-    call expression curLocForEvent
-  File "game/custom/customlabels.rpy", line 28, in script call
-    call expression curLocForEvent
-  File "game/custom/customlabels.rpy", line 28, in script call
-    call expression curLocForEvent
-  [Previous line repeated 4 more times]
-  File "game/custom/customlabels.rpy", line 32, in script call
-    $ renpy.pause(hard=True)
-  File "game/custom/customlabels.rpy", line 125, in script
-    if Withdraw.isdigit():
-  File "game/custom/customlabels.rpy", line 125, in <module>
-    if Withdraw.isdigit():
-AttributeError: 'int' object has no attribute 'isdigit'
+  File "renpy/common/00start.rpy", line 189, in script
+    python:
+  File "renpy/common/00start.rpy", line 190, in <module>
+    renpy.execute_default_statement(True)
+  File "game/custom/variables.rpy", line 92, in execute_default
+    default KitchenFirstVisit = True
+Exception: store.KitchenFirstVisit is being given a default a second time.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/custom/customlabels.rpy", line 28, in script call
-    call expression curLocForEvent
-  File "game/custom/customlabels.rpy", line 28, in script call
-    call expression curLocForEvent
-  File "game/custom/customlabels.rpy", line 28, in script call
-    call expression curLocForEvent
-  [Previous line repeated 4 more times]
-  File "game/custom/customlabels.rpy", line 32, in script call
-    $ renpy.pause(hard=True)
-  File "game/custom/customlabels.rpy", line 125, in script
-    if Withdraw.isdigit():
-  File "D:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2133, in execute
-    if renpy.python.py_eval(condition):
-  File "D:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1153, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "D:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1146, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/custom/customlabels.rpy", line 125, in <module>
-    if Withdraw.isdigit():
-AttributeError: 'int' object has no attribute 'isdigit'
+  File "renpy/common/00start.rpy", line 189, in script
+    python:
+  File "D:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1138, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1122, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00start.rpy", line 190, in <module>
+    renpy.execute_default_statement(True)
+  File "D:\Renpy\renpy-8.0.3-sdk\renpy\exports.py", line 3972, in execute_default_statement
+    i.execute_default(start)
+  File "game/custom/variables.rpy", line 92, in execute_default
+    default KitchenFirstVisit = True
+Exception: store.KitchenFirstVisit is being given a default a second time.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.1.1.23060707
 ProjectCW 1.0
-Wed Feb 21 16:32:17 2024
+Wed Feb 21 16:42:23 2024

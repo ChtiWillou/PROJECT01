@@ -21,7 +21,7 @@ label variables:
         "1300":"School","1330":"School","1400":"TVRoom","1430":"TVRoom",
         "1500":"TVRoom","1530":"EveRoom","1600":"EveRoom","1630":"EveRoom",
         "1700":"EveRoom","1730":"EveRoom","1800":"EveRoom","1830":"EveRoom",
-        "1900":"Diningroom","1930":"Diningroom","2100":"EveRoom","2130":"EveRoom",
+        "1900":"Kitchen","1930":"Kitchen","2100":"EveRoom","2130":"EveRoom",
         "2100":"EveRoom","2130":"EveRoom","2200":"EveRoom","2230":"EveRoom",
         "2300":"EveRoom","2330":"EveRoom","0000":"EveRoom"
         },
@@ -32,7 +32,7 @@ label variables:
         "1300":"School","1330":"School","1400":"TVRoom","1430":"TVRoom",
         "1500":"TVRoom","1530":"EveRoom","1600":"EveRoom","1630":"EveRoom",
         "1700":"EveRoom","1730":"EveRoom","1800":"EveRoom","1830":"EveRoom",
-        "1900":"Diningroom","1930":"Diningroom","2100":"EveRoom","2130":"EveRoom",
+        "1900":"Kitchen","1930":"Kitchen","2100":"EveRoom","2130":"EveRoom",
         "2100":"EveRoom","2130":"EveRoom","2200":"EveRoom","2230":"EveRoom",
         "2300":"EveRoom","2330":"EveRoom","0000":"EveRoom"
         })
@@ -45,7 +45,7 @@ label variables:
         "1300":"School","1330":"School","1400":"School","1430":"School",
         "1500":"School","1530":"LynnRoom","1600":"LynnRoom","1630":"LynnRoom",
         "1700":"LynnRoom","1730":"LynnRoom","1800":"LynnRoom","1830":"LynnRoom",
-        "1900":"Diningroom","1930":"Diningroom","2100":"LynnRoom","2130":"LynnRoom",
+        "1900":"Kitchen","1930":"Kitchen","2100":"LynnRoom","2130":"LynnRoom",
         "2100":"LynnRoom","2130":"LynnRoom","2200":"LynnRoom","2230":"LynnRoom",
         "2300":"LynnRoom","2330":"LynnRoom","0000":"LynnRoom"
         },
@@ -56,7 +56,7 @@ label variables:
         "1300":"School","1330":"School","1400":"School","1430":"School",
         "1500":"School","1530":"LynnRoom","1600":"LynnRoom","1630":"LynnRoom",
         "1700":"LynnRoom","1730":"LynnRoom","1800":"LynnRoom","1830":"LynnRoom",
-        "1900":"Diningroom","1930":"Diningroom","2100":"LynnRoom","2130":"LynnRoom",
+        "1900":"Kitchen","1930":"Kitchen","2100":"LynnRoom","2130":"LynnRoom",
         "2100":"LynnRoom","2130":"LynnRoom","2200":"LynnRoom","2230":"LynnRoom",
         "2300":"LynnRoom","2330":"LynnRoom","0000":"LynnRoom"
         })
@@ -69,7 +69,7 @@ label variables:
         "1300":"School","1330":"School","1400":"Pool","1430":"Pool",
         "1500":"School","1530":"LinaRoom","1600":"LinaRoom","1630":"LinaRoom",
         "1700":"LinaRoom","1730":"LinaRoom","1800":"LinaRoom","1830":"LinaRoom",
-        "1900":"Diningroom","1930":"Diningroom","2100":"LinaRoom","2130":"LinaRoom",
+        "1900":"Kitchen","1930":"Kitchen","2100":"LinaRoom","2130":"LinaRoom",
         "2100":"LinaRoom","2130":"LinaRoom","2200":"LinaRoom","2230":"LinaRoom",
         "2300":"LinaRoom","2330":"LinaRoom","0000":"LinaRoom"
         },
@@ -80,16 +80,16 @@ label variables:
         "1300":"School","1330":"School","1400":"Pool","1430":"Pool",
         "1500":"School","1530":"LinaRoom","1600":"LinaRoom","1630":"LinaRoom",
         "1700":"LinaRoom","1730":"LinaRoom","1800":"LinaRoom","1830":"LinaRoom",
-        "1900":"Diningroom","1930":"Diningroom","2100":"LinaRoom","2130":"LinaRoom",
+        "1900":"Kitchen","1930":"Kitchen","2100":"LinaRoom","2130":"LinaRoom",
         "2100":"LinaRoom","2130":"LinaRoom","2200":"LinaRoom","2230":"LinaRoom",
         "2300":"LinaRoom","2330":"LinaRoom","0000":"LinaRoom"
         })
 
     default curLoc = ""
     default curLocForEvent = ""
-    default DiningRoomFirstVisit = True
-    default BathroomFirstVisit = True
     default KitchenFirstVisit = True
+    default BathroomFirstVisit = True
+    default DinningRoomFirstVisit = True
     default TVRoomFirstVisit = True
     default BobRoomFirstVisit = True
     default LinaRoomFirstVisit = True
